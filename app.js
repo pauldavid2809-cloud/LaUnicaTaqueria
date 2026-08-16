@@ -485,13 +485,51 @@ function updateCartUI() {
   document.getElementById('cart-total').innerText = `$${total.toLocaleString('es-CO')}`;
 }
 
+/* --------------------------------------------------------------------------
+   GPS Geolocation Capture
+   -------------------------------------------------------------------------- */
+let capturedGPS = null;
+
+function captureGPSLocation() {
+  if (!navigator.geolocation) {
+    showToast('⚠️ Tu navegador no soporta geolocalización GPS.');
+    return;
+  }
+
+  showToast('📍 Obteniendo coordenadas GPS de tu ubicación...');
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      const lat = pos.coords.latitude;
+      const lng = pos.coords.longitude;
+      const mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+      
+      capturedGPS = { latitude: lat, longitude: lng, maps_url: mapsUrl };
+      
+      const addrInput = document.getElementById('checkout-address');
+      if (addrInput) {
+        if (!addrInput.value) addrInput.value = `Ubicación GPS Pin (${lat.toFixed(4)}, ${lng.toFixed(4)})`;
+      }
+      
+      showToast('📍 ¡Ubicación GPS capturada con éxito para el repartidor!');
+      playClickSound();
+    },
+    (err) => {
+      console.warn('Error capturando GPS:', err);
+      showToast('⚠️ No se pudo obtener la ubicación GPS automáticamente. Por favor escribe tu dirección.');
+    },
+    { enableHighAccuracy: true, timeout: 10000 }
+  );
+}
+
 async function sendWhatsAppOrder() {
   if (cart.length === 0) {
     showToast('⚠️ Agrega platillos antes de realizar el pedido');
     return;
   }
 
-  const name = document.getElementById('checkout-name')?.value || 'Cliente';
+  const name = document.getElementById('checkout-name')?.value || 'Cliente Taquería';
+  const phone = document.getElementById('checkout-phone')?.value || '+57 300 000 0000';
   const address = document.getElementById('checkout-address')?.value || 'Dirección no especificada';
   const trackingCode = 'TAQ-' + Math.floor(1000 + Math.random() * 9000);
 
@@ -503,9 +541,12 @@ async function sendWhatsAppOrder() {
   const orderData = {
     tracking_code: trackingCode,
     customer_name: name,
-    customer_phone: '+57 300 000 0000',
+    customer_phone: phone,
     delivery_type: deliveryType,
     address: address,
+    latitude: capturedGPS ? capturedGPS.latitude : null,
+    longitude: capturedGPS ? capturedGPS.longitude : null,
+    maps_url: capturedGPS ? capturedGPS.maps_url : null,
     items: cart,
     subtotal: subtotal,
     delivery_fee: deliveryFee,
@@ -519,8 +560,14 @@ async function sendWhatsAppOrder() {
 
   let text = `*🌶️ PEDIDO NUEVO (${trackingCode}) - LA ÚNICA TAQUERÍA 🌶️*\n\n`;
   text += `*Cliente:* ${name}\n`;
+  text += `*Teléfono:* ${phone}\n`;
   text += `*Modalidad:* ${deliveryType === 'domicilio' ? '🛵 Domicilio a Casa' : '🌮 Recoger en Taquería'}\n`;
-  if (deliveryType === 'domicilio') text += `*Dirección:* ${address}\n`;
+  if (deliveryType === 'domicilio') {
+    text += `*Dirección:* ${address}\n`;
+    if (capturedGPS && capturedGPS.maps_url) {
+      text += `*GPS Pin Google Maps:* ${capturedGPS.maps_url}\n`;
+    }
+  }
   text += `\n*--- DETALLE DEL PEDIDO ---*\n`;
 
   cart.forEach(item => {
@@ -536,7 +583,7 @@ async function sendWhatsAppOrder() {
   const phoneNumber = '573001234567';
   window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   
-  showToast(`¡Pedido ${trackingCode} guardado en Supabase! Redirigiendo a WhatsApp 📲`);
+  showToast(`¡Pedido ${trackingCode} registrado en Supabase! Redirigiendo a WhatsApp 📲`);
 }
 
 /* --------------------------------------------------------------------------
