@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Manual Operativo y Guía de Funcionamiento - La Única Taquería</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 15mm 20mm 15mm;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.5;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .header-banner {
+      background: #dc3834;
+      color: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .header-logo {
+      height: 70px;
+      width: auto;
+    }
+    .header-title {
+      font-size: 24px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+    .header-subtitle {
+      font-size: 13px;
+      color: #fce6c1;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .section-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #dc3834;
+      border-bottom: 2px solid #dc3834;
+      padding-bottom: 6px;
+      margin-top: 24px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    .card {
+      background: #fdfbf7;
+      border: 1px solid #eadbc8;
+      border-left: 4px solid #dc3834;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      background: #dc3834;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+    .badge-yellow {
+      background: #e67e22;
+      color: #fff;
+    }
+    p {
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      color: #444;
+    }
+    ul {
+      margin: 4px 0 10px 20px;
+      padding: 0;
+      font-size: 13px;
+      color: #444;
+    }
+    li {
+      margin-bottom: 4px;
+    }
+    .footer-note {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px dashed #ccc;
+      font-size: 11px;
+      color: #777;
+      text-align: center;
+    }
+    .step-box {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #333;
+    }
+    .page-break {
+      page-break-after: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div>
+      <h1 class="header-title">LA ÚNICA TAQUERÍA</h1>
+      <div class="header-subtitle">DOCUMENTO DE PRESENTACIÓN EJECUTIVA Y MANUAL OPERATIVO</div>
+    </div>
+    <img src="assets/logo_bright.png" alt="Logo La Única Taquería" class="header-logo">
+  </div>
+
+  <!-- Resumen Ejecutivo -->
+  <div class="card" style="border-left-color: #e67e22; background: #fffdf9;">
+    <div class="card-title">📌 RESUMEN EJECUTIVO & PROPUESTA DE VALOR</div>
+    <p>Esta plataforma webapp es una solución tecnológica completa desarrollada a medida para <strong>La Única Taquería</strong>. Su objetivo principal es <strong>eliminar las comisiones de terceros (Rappi, Didi, UberEats)</strong>, canalizando el 100% de los pedidos de domicilio y reservas VIP directamente por WhatsApp y la base de datos de la empresa.</p>
+    <p><strong>URL de la Aplicación Web:</strong> https://la-unica-taqueria.vercel.app</p>
+  </div>
+
+  <!-- Módulo 1 -->
+  <div class="section-title">1. Menú Digital Interactivo y Pedidos por WhatsApp</div>
+  <div class="card">
+    <div class="card-title">🌮 Catálogo Gastronómico & Carrito de Compras</div>
+    <p>El cliente consulta el menú categorizado (Tacos, Quesatacos, Bebidas, Extras) con fotografías gastronómicas de alta calidad y descripciones detalladas.</p>
+    <ul>
+      <li><strong>Cálculo Automático:</strong> Suma el subtotal, tarifa de domicilio ($4.000) y propina voluntaria para los taqueros (10%, 15%, 20%).</li>
+      <li><strong>Generación de Comanda:</strong> Al presionar <em>"Realizar Pedido"</em>, el sistema crea un código único de seguimiento <strong>#TAQ-XXXX</strong> y abre el WhatsApp oficial de la taquería con el desglose exacto para iniciar el servicio.</li>
+    </ul>
+  </div>
+
+  <!-- Módulo 2 -->
+  <div class="section-title">2. Asistente Personalizador "Taco Builder"</div>
+  <div class="card">
+    <div class="card-title">⚙️ Creador de Tacos a la Medida del Cliente</div>
+    <p>Un asistente interactivo tipo paso a paso que permite al comensal personalizar su pedido:</p>
+    <ul>
+      <li><strong>Paso 1 (Tortilla):</strong> Maíz Amarillo, Maíz Azul o Harina.</li>
+      <li><strong>Paso 2 (Proteína):</strong> Pastor Adobado, Birria de Res o Carne Asada al Carbón.</li>
+      <li><strong>Paso 3 (Salsa):</strong> Verde Martajada, Roja de Árbol, Macha o Sin Picante.</li>
+      <li><strong>Paso 4 (Extras):</strong> Queso Oaxaca Fundido, Guacamole o Piña Asada.</li>
+    </ul>
+    <p>El precio se calcula dinámicamente y se agrega al carrito de compras como un producto exclusivo.</p>
+  </div>
+
+  <!-- Módulo 3 -->
+  <div class="section-title">3. Sistema Rediseñado de Reservas 2D (Croquis de Planta)</div>
+  <div class="card">
+    <div class="card-title">🎟️ Plano Visual Interactivo de Mesas</div>
+    <p>Reemplaza los formularios planos por una experiencia inmersiva donde el cliente elige su mesa exacta sobre el mapa del restaurante:</p>
+    <ul>
+      <li><strong>Zona Barra Neón:</strong> Mesas B1, B2, B3, B4 (1-2 personas).</li>
+      <li><strong>Zona Terraza Callejera:</strong> Mesas T1, T2, T3, T4 (2-4 personas).</li>
+      <li><strong>Zona Salón Principal:</strong> Mesas S1, S2, S3, S4 (4-10 personas).</li>
+    </ul>
+    <p><strong>Indicador de Estado:</strong> Verde (🟢 Libre), Amarillo (🟡 Selección) y Rojo (🔴 Reservada). Al confirmar, genera un <strong>Pase VIP con Código QR</strong> en pantalla.</p>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- Header Banner Page 2 -->
+  <div class="header-banner" style="padding: 14px 24px; margin-bottom: 20px;">
+    <div>
+      <h2 style="font-size: 18px; margin: 0; color: #fff;">LA ÚNICA TAQUERÍA • MANUAL OPERATIVO (PÁG. 2)</h2>
+    </div>
+    <span class="badge" style="background: #fff; color: #dc3834; font-size: 11px;">VERSIÓN EMPRESA</span>
+  </div>
+
+  <!-- Módulo 4 -->
+  <div class="section-title">4. Geolocalización GPS Exacta en el Checkout</div>
+  <div class="card">
+    <div class="card-title">📍 Captura del PIN en Google Maps para Domiciliarios</div>
+    <p>Para evitar llamadas y perder tiempo buscando direcciones difíciles, la webapp incluye el botón <strong>"📍 Obtener mi Ubicación GPS"</strong>:</p>
+    <ul>
+      <li>Utiliza el sensor GPS del celular del cliente para capturar la latitud y longitud precisas.</li>
+      <li>Genera de manera transparente una URL de navegación oficial de Google Maps (<code>https://www.google.com/maps?q=lat,lng</code>) que se almacena en el pedido.</li>
+    </ul>
+  </div>
+
+  <!-- Módulo 5 -->
+  <div class="section-title">5. Despacho Automatizado de Notificaciones por WhatsApp</div>
+  <div class="card">
+    <div class="card-title">🤖 Mensajería por Fase desde el Número Oficial</div>
+    <p>Cada vez que el personal del restaurante cambia el estado del pedido, el sistema dispara automáticamente un mensaje de WhatsApp directo al celular del cliente:</p>
+    <div class="step-box">
+      <strong>Fase 1 (Recibido 📥):</strong> "¡Hola {Nombre}! 🌮 Recibimos tu pedido #{Código} en La Única Taquería."<br>
+      <strong>Fase 2 (En Cocina 👨‍🍳):</strong> "¡Hola {Nombre}! 🔥 Tu pedido #{Código} está en la plancha/trompo calientito."<br>
+      <strong>Fase 3 (En Camino 🛵):</strong> "¡Hola {Nombre}! 🛵 Tu repartidor va en camino a tu PIN GPS. Prepara la mesa!"<br>
+      <strong>Fase 4 (Entregado 🌮):</strong> "¡Hola {Nombre}! 🌮 Tu pedido #{Código} ha sido entregado. ¡Buen provecho!"
+    </div>
+  </div>
+
+  <!-- Módulo 6 -->
+  <div class="section-title">6. Portal Secreto para Repartidores (delivery.html)</div>
+  <div class="card">
+    <div class="card-title">🛵 Dashboard Exclusivo de Control de Entregas</div>
+    <p>Una página independiente escondida en <strong><code>/delivery.html</code></strong> para el uso interno de los moto-repartidores y la cocina:</p>
+    <ul>
+      <li><strong>Tablero en Tiempo Real:</strong> Muestra los pedidos entrantes con nombre del cliente, teléfono, productos y total.</li>
+      <li><strong>Navegación GPS de 1 Clic:</strong> Botón <em>"🧭 NAVEGAR CON PIN GPS"</em> que abre directamente Waze o Google Maps guiando al domiciliario hasta la puerta de la casa.</li>
+      <li><strong>Cambio de Fase:</strong> Botones <code>[👨‍🍳 Cocina]</code>, <code>[🛵 En Camino]</code>, <code>[🌮 Entregado]</code> que avanzan la comanda e inician la notificación automática de WhatsApp.</li>
+    </ul>
+  </div>
+
+  <!-- Módulo 7 -->
+  <div class="section-title">7. Base de Datos Supabase & PWA Instalable</div>
+  <div class="card">
+    <div class="card-title">💾 Persistencia en la Nube y App Móvil</div>
+    <ul>
+      <li><strong>Base de Datos Supabase:</strong> Registro centralizado y seguro de pedidos, reservas de mesas y reseñas de clientes.</li>
+      <li><strong>PWA (Progressive Web App):</strong> Los clientes y empleados pueden presionar <em>"Agregar a la Pantalla de Inicio"</em> para instalar la aplicación directamente en Android e iPhone con icono personalizado.</li>
+    </ul>
+  </div>
+
+  <!-- Pie de página -->
+  <div class="footer-note">
+    Documento preparado para la dirección y propietarios de <strong>La Única Taquería</strong>.<br>
+    Desarrollado y configurado en el repositorio oficial: <code>https://github.com/pauldavid2809-cloud/LaUnicaTaqueria</code>
+  </div>
+
+</body>
+</html>
