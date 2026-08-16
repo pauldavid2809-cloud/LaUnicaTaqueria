@@ -933,37 +933,28 @@ h1, h2, h3, .font-headline {
 }
 
 .drawer-header {
-  padding: 24px;
+  padding: 20px 24px;
   border-bottom: 1px solid var(--border-neon);
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--bg-card);
+  flex-shrink: 0;
 }
 
-.drawer-title {
-  font-family: var(--font-headline);
-  font-size: 26px;
-  color: #fff;
-}
-
-.btn-close {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 24px;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.btn-close:hover {
-  color: var(--primary-red-light);
+.drawer-scroll-container {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  display: flex;
+  flex-direction: column;
 }
 
 .drawer-body {
   padding: 24px;
-  flex-grow: 1;
-  overflow-y: auto;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;

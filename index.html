@@ -456,66 +456,68 @@
       <button class="btn-close" id="btn-cart-close">&times;</button>
     </div>
 
-    <div class="drawer-body" id="cart-drawer-items">
-      <!-- Dynamically filled with cart items -->
-    </div>
-
-    <div class="drawer-footer">
-      <!-- Delivery Mode Selector -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
-        <button class="filter-btn active delivery-tab" id="tab-domicilio" onclick="setDeliveryType('domicilio')" style="padding: 8px; font-size: 12px;">
-          🛵 DOMICILIO
-        </button>
-        <button class="filter-btn delivery-tab" id="tab-recoger" onclick="setDeliveryType('recoger')" style="padding: 8px; font-size: 12px;">
-          🌮 RECOGER
-        </button>
+    <div class="drawer-scroll-container">
+      <div class="drawer-body" id="cart-drawer-items">
+        <!-- Dynamically filled with cart items -->
       </div>
 
-      <!-- Customer & Delivery Inputs -->
-      <div class="form-group">
-        <input type="text" id="checkout-name" class="form-input" placeholder="Tu nombre completo" style="padding: 10px; font-size: 13px;" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" id="checkout-phone" class="form-input" placeholder="Teléfono WhatsApp (+57 300 000 0000)" style="padding: 10px; font-size: 13px;" required>
-      </div>
-      <div class="form-group" id="address-group">
-        <input type="text" id="checkout-address" class="form-input" placeholder="Dirección exacta de entrega" style="padding: 10px; font-size: 13px;">
-        <button type="button" class="btn-secondary" onclick="captureGPSLocation()" style="width: 100%; margin-top: 6px; font-size: 11px; height: 36px; padding: 0 10px;">
-          <span>📍 OBTENER MI UBICACIÓN GPS (PARA EL DOMICILIARIO)</span>
-        </button>
-      </div>
-
-      <!-- Tip Selector -->
-      <div style="margin-bottom: 16px;">
-        <label class="form-label" style="font-size: 11px;">PROPINA PARA EL TAQUERO:</label>
-        <div style="display: flex; gap: 8px;">
-          <button class="filter-btn tip-btn active" id="tip-10" onclick="setTip(10)" style="padding: 6px 12px; font-size: 11px;">10%</button>
-          <button class="filter-btn tip-btn" id="tip-15" onclick="setTip(15)" style="padding: 6px 12px; font-size: 11px;">15%</button>
-          <button class="filter-btn tip-btn" id="tip-20" onclick="setTip(20)" style="padding: 6px 12px; font-size: 11px;">20%</button>
+      <div class="drawer-footer">
+        <!-- Delivery Mode Selector -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
+          <button class="filter-btn active delivery-tab" id="tab-domicilio" onclick="setDeliveryType('domicilio')" style="padding: 8px; font-size: 12px;">
+            🛵 DOMICILIO
+          </button>
+          <button class="filter-btn delivery-tab" id="tab-recoger" onclick="setDeliveryType('recoger')" style="padding: 8px; font-size: 12px;">
+            🌮 RECOGER
+          </button>
         </div>
-      </div>
 
-      <!-- Summary -->
-      <div class="summary-row">
-        <span>Subtotal</span>
-        <span id="cart-subtotal">$0</span>
-      </div>
-      <div class="summary-row">
-        <span>Costo de Envío</span>
-        <span id="cart-delivery-fee">$0</span>
-      </div>
-      <div class="summary-row">
-        <span>Propina</span>
-        <span id="cart-tip-amount">$0</span>
-      </div>
-      <div class="summary-row summary-total">
-        <span>TOTAL</span>
-        <span class="summary-total-val" id="cart-total">$0</span>
-      </div>
+        <!-- Customer & Delivery Inputs -->
+        <div class="form-group">
+          <input type="text" id="checkout-name" class="form-input" placeholder="Tu nombre completo" style="padding: 10px; font-size: 13px;" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="checkout-phone" class="form-input" placeholder="Teléfono WhatsApp (+57 300 000 0000)" style="padding: 10px; font-size: 13px;" required>
+        </div>
+        <div class="form-group" id="address-group">
+          <input type="text" id="checkout-address" class="form-input" placeholder="Dirección exacta de entrega" style="padding: 10px; font-size: 13px;">
+          <button type="button" class="btn-secondary" onclick="captureGPSLocation()" style="width: 100%; margin-top: 6px; font-size: 11px; height: 36px; padding: 0 10px;">
+            <span>📍 OBTENER MI UBICACIÓN GPS (PARA EL DOMICILIARIO)</span>
+          </button>
+        </div>
 
-      <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;" onclick="sendWhatsAppOrder()">
-        <span>📲 ENVIAR PEDIDO A WHATSAPP</span>
-      </button>
+        <!-- Tip Selector -->
+        <div style="margin-bottom: 16px;">
+          <label class="form-label" style="font-size: 11px;">PROPINA PARA EL TAQUERO:</label>
+          <div style="display: flex; gap: 8px;">
+            <button class="filter-btn tip-btn active" id="tip-10" onclick="setTip(10)" style="padding: 6px 12px; font-size: 11px;">10%</button>
+            <button class="filter-btn tip-btn" id="tip-15" onclick="setTip(15)" style="padding: 6px 12px; font-size: 11px;">15%</button>
+            <button class="filter-btn tip-btn" id="tip-20" onclick="setTip(20)" style="padding: 6px 12px; font-size: 11px;">20%</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Costo de Envío</span>
+          <span id="cart-delivery-fee">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Propina</span>
+          <span id="cart-tip-amount">$0</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>TOTAL</span>
+          <span class="summary-total-val" id="cart-total">$0</span>
+        </div>
+
+        <button class="btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;" onclick="sendWhatsAppOrder()">
+          <span>📲 ENVIAR PEDIDO A WHATSAPP</span>
+        </button>
+      </div>
     </div>
   </aside>
 
