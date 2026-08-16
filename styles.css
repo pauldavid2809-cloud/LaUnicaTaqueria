@@ -141,23 +141,23 @@ h1, h2, h3, .font-headline {
 .brand-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
   white-space: nowrap;
 }
 
-.brand-logo-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--primary-red);
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
   border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  box-shadow: var(--glow-red-md);
-  color: #fff;
+  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.7));
+  transition: transform 0.3s ease;
+}
+
+.brand-container:hover .brand-logo-img {
+  transform: scale(1.08) rotate(-3deg);
 }
 
 .brand-text {
@@ -177,6 +177,20 @@ h1, h2, h3, .font-headline {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-top: 1px;
+}
+
+.hero-official-logo {
+  max-width: 180px;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  box-shadow: var(--glow-red-lg);
+  border: 2px solid var(--border-neon-solid);
+  transition: transform 0.4s ease;
+}
+
+.hero-official-logo:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
 .nav-links {
