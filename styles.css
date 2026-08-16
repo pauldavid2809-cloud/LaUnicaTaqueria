@@ -1388,14 +1388,57 @@ footer {
   padding-top: 10px;
 }
 
+/* Mobile Navigation Drawer Overlay */
+.btn-mobile-toggle {
+  display: none;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(17, 16, 16, 0.98);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 2000;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-drawer.active {
+  transform: translateX(0);
+}
+
+.mobile-nav-links {
+  list-style: none;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+}
+
+.mobile-nav-links a {
+  color: #fff;
+  font-family: var(--font-data);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-links a:hover {
+  color: var(--primary-red-light);
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 900px) {
-  .navbar {
-    padding: 0 16px;
-  }
-  .nav-links {
-    display: none;
-  }
   .reservation-container {
     grid-template-columns: 1fr;
     padding: 24px;
@@ -1403,8 +1446,108 @@ footer {
   .location-grid {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden !important;
+  }
+
+  .navbar {
+    padding: 0 12px;
+    height: 62px;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+  }
+
+  .brand-title {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+  }
+
+  .nav-links, .open-badge, .sound-toggle-desktop {
+    display: none !important;
+  }
+
+  .btn-mobile-toggle {
+    display: flex;
+  }
+
+  .btn-cart {
+    padding: 0 10px;
+    font-size: 11px;
+    height: 36px;
+    gap: 4px;
+  }
+
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .hero-official-logo {
+    width: 220px;
+    max-width: 75vw;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    height: 46px;
+    font-size: 13px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tracker-box {
+    padding: 20px 14px;
+  }
+
   .timeline-stepper {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .cart-drawer {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .modal-content {
+    padding: 20px 16px;
+    max-width: 95vw;
   }
 }
 

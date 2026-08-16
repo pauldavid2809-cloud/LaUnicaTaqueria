@@ -39,7 +39,7 @@
         <span class="pulse-dot"></span> ABIERTO AHORA • 18:00 - 03:00
       </div>
 
-      <button class="btn-icon" id="btn-sound-toggle" onclick="toggleSound()" title="Ambiente Neón Audio">
+      <button class="btn-icon sound-toggle-desktop" id="btn-sound-toggle" onclick="toggleSound()" title="Ambiente Neón Audio">
         🔇
       </button>
 
@@ -47,8 +47,38 @@
         <span>🛒 MI ORDEN</span>
         <span class="cart-count" id="cart-count-badge">0</span>
       </button>
+
+      <button class="btn-icon btn-mobile-toggle" id="btn-mobile-toggle" onclick="toggleMobileNav()" title="Menú">
+        ☰
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Navigation Overlay Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--border-neon);">
+      <div style="font-family: var(--font-headline); font-size: 22px; color: #fff;">MENÚ NAVEGACIÓN</div>
+      <button class="btn-close" onclick="toggleMobileNav()">&times;</button>
+    </div>
+    
+    <ul class="mobile-nav-links">
+      <li><a href="#menu" onclick="toggleMobileNav()">Menú Digital 🌮</a></li>
+      <li><a href="#" onclick="toggleMobileNav(); openModal('taco-builder-modal');">Taco Builder ⚙️</a></li>
+      <li><a href="#reservas" onclick="toggleMobileNav()">Reservas 2D 🎟️</a></li>
+      <li><a href="#tracker" onclick="toggleMobileNav()">Rastreador 🛵</a></li>
+      <li><a href="#resenas" onclick="toggleMobileNav()">Reseñas ⭐️</a></li>
+      <li><a href="#contacto" onclick="toggleMobileNav()">Contacto 📩</a></li>
+    </ul>
+
+    <div style="margin-top: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+      <div class="open-badge" style="justify-content: center; width: 100%; margin-bottom: 14px;">
+        <span class="pulse-dot"></span> ABIERTO AHORA • 18:00 - 03:00
+      </div>
+      <button class="btn-secondary" onclick="toggleSound()" style="width: 100%; justify-content: center; font-size: 12px; height: 38px;">
+        🔊 AMBIENTE AUDIO NEÓN
+      </button>
+    </div>
+  </div>
 
   <!-- Marquee Banner -->
   <div class="marquee-bar">

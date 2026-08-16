@@ -620,6 +620,11 @@ function toggleCartDrawer() {
   if (drawer) drawer.classList.toggle('active');
 }
 
+function toggleMobileNav() {
+  const drawer = document.getElementById('mobile-nav-drawer');
+  if (drawer) drawer.classList.toggle('active');
+}
+
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) modal.classList.add('active');
