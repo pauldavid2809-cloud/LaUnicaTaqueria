@@ -134,21 +134,22 @@ h1, h2, h3, .font-headline {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 20px;
+  gap: 12px;
   transition: all 0.3s ease;
 }
 
 .brand-container {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
   white-space: nowrap;
 }
 
 .brand-logo-img {
-  height: 52px;
+  height: 46px;
   width: auto;
   object-fit: contain;
   background: transparent;
@@ -161,58 +162,48 @@ h1, h2, h3, .font-headline {
   transform: scale(1.08) rotate(-3deg);
 }
 
-.brand-text {
+.brand-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0.95;
+}
+
+.brand-title {
   font-family: var(--font-headline);
-  font-size: 22px;
+  font-size: 20px;
   color: #fff;
-  letter-spacing: 0.05em;
-  line-height: 1.0;
-  white-space: nowrap;
+  letter-spacing: 0.04em;
   animation: neon-flicker 4s infinite alternate;
 }
 
-.hero-logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto 28px auto;
-  text-align: center;
-}
-
-.hero-official-logo {
-  width: 320px;
-  max-width: 85vw;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  filter: drop-shadow(0 0 25px rgba(220, 56, 52, 0.9)) drop-shadow(0 0 50px rgba(252, 230, 193, 0.6));
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.hero-official-logo:hover {
-  transform: scale(1.06) rotate(-2deg);
+.brand-sub {
+  font-family: var(--font-data);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--secondary-yellow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 1px;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-shrink: 1;
 }
 
 .nav-link {
   color: var(--text-primary);
   text-decoration: none;
   font-family: var(--font-data);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   transition: color 0.2s ease, text-shadow 0.2s ease;
   position: relative;
@@ -246,20 +237,20 @@ h1, h2, h3, .font-headline {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .open-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: rgba(14, 14, 14, 0.9);
   border: 1px solid var(--border-neon);
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: var(--radius-pill);
   font-family: var(--font-data);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--secondary-yellow);
   white-space: nowrap;
