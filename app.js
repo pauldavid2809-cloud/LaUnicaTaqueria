@@ -529,7 +529,14 @@ async function sendWhatsAppOrder() {
   }
 
   const name = document.getElementById('checkout-name')?.value || 'Cliente Taquería';
-  const phone = document.getElementById('checkout-phone')?.value || '+57 300 000 0000';
+  let rawPhone = document.getElementById('checkout-phone')?.value || '3000000000';
+  
+  // Format phone number automatically
+  let cleanPhone = rawPhone.replace(/[^0-9+]/g, '');
+  if (!cleanPhone.startsWith('+')) {
+    cleanPhone = '+57' + cleanPhone;
+  }
+  
   const address = document.getElementById('checkout-address')?.value || 'Dirección no especificada';
   const trackingCode = 'TAQ-' + Math.floor(1000 + Math.random() * 9000);
 
@@ -541,7 +548,7 @@ async function sendWhatsAppOrder() {
   const orderData = {
     tracking_code: trackingCode,
     customer_name: name,
-    customer_phone: phone,
+    customer_phone: cleanPhone,
     delivery_type: deliveryType,
     address: address,
     latitude: capturedGPS ? capturedGPS.latitude : null,
